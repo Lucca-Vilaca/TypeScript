@@ -1,20 +1,21 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from 'styled-components';
-import AppRoutes from './src/routes';
-import theme from './src/styles/theme';
-import { StatusBar } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from '../screens/HomeScreen';
+import CreateAppointmentScreen from '../screens/CreateAppointmentScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+export default function AppRoutes() {
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar 
-          barStyle="light-content" 
-          backgroundColor={theme.colors.primary} 
-        />
-        <AppRoutes />
-      </NavigationContainer>
-    </ThemeProvider>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        animation: 'slide_from_right',
+      }}
+    >
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="CreateAppointment" component={CreateAppointmentScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+    </Stack.Navigator>
   );
 }

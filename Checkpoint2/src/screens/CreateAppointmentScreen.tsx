@@ -5,8 +5,7 @@ import AppointmentForm from '../components/AppointmentForm';
 import theme from '../styles/theme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Appointment } from '../types/appointments';
-import { RootStackParamList } from '../types/navigation';
+import { RootStackParamList } from '../types';
 
 type CreateAppointmentScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'CreateAppointment'>;
